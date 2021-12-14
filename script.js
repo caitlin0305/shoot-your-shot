@@ -9,6 +9,7 @@
 /* ********************************************* */
 /* globale variabelen die je gebruikt in je game */
 /* ********************************************* */
+let bg;
 
 const SPELEN = 1;
 const GAMEOVER = 2;
@@ -16,6 +17,11 @@ var spelStatus = SPELEN;
 
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
+
+//bal 
+function preload() {
+  imgBal = loadImage ("images/football.png");
+}
 
 /* ********************************************* */
 /* functies die je gebruikt in je game           */
@@ -30,6 +36,8 @@ var beweegAlles = function () {
   // kogel
 
   // speler
+
+  // bal
 
 };
 
@@ -56,12 +64,22 @@ var tekenAlles = function () {
   // kogel
 
   // speler
+
   fill("white");
   rect(spelerX - 25, spelerY - 25, 50, 50);
   fill("black");
   ellipse(spelerX, spelerY, 10, 10);
 
+  // bal DEZE CODE WERKT NIET HELP
+  bal = (imgBal, 500, 100, 80, 80);
+
   // punten en health
+
+   //tekst game 
+   fill(235, 200, 96);
+   textSize(40);
+   textFont('courier');
+   text('SHOOT YOUR SHOT', 470, 40);
 
 };
 
@@ -86,13 +104,8 @@ function setup() {
   // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
   createCanvas(1280, 720);
 
-  background('green');
+  bg = loadImage("images/footballgoal.png"); 
   
-  line(30, 20, 85, 75);
-  line();
-  line();
-  line();
-  line();
   
 }
 
@@ -102,6 +115,8 @@ function setup() {
  * uitgevoerd door de p5 library, nadat de setup functie klaar is
  */
 function draw() {
+  background(bg);
+
   if (spelStatus === SPELEN) {
     beweegAlles();
     verwerkBotsing();
