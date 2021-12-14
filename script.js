@@ -86,8 +86,14 @@ function setup() {
   // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
   createCanvas(1280, 720);
 
-  // Kleur de achtergrond blauw, zodat je het kunt zien
-  background('blue');
+  background('green');
+  
+  line(30, 20, 85, 75);
+  line();
+  line();
+  line();
+  line();
+  
 }
 
 /**
